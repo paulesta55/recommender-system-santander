@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+
+        <title>CS 7643 Deep Learning</title>
+
+        <link rel="canonical" href="http://localhost:4000/">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="\Santander\website\css\main.css" >
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+        <link rel="shortcut icon" href="/classes/AY2020/cs7643_fall/images/icon.png">
+
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            }
+          });
+        </script>
+</head>
+
+
+<body>
+    <nav class="navbar">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/classes/AY2020/cs7643_fall">CS 7641 Machine Learning: Santander </a>
+                <!-- <div style="margin-top: 5px; color:white;">Fall 2019</div> -->
+            </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div style="padding-top: 15px;" class="card">
+
+  <h1 id="cs-4803--7643-deep-learning">CS 4803 / 7643 Deep Learning</h1>
+
+  <h3 style="font-weight: 300;">Fall 2019, TR 12:00 - 1:15 pm, College of Business 100</h3>
+
+  <hr />
+
+  <div class="row">
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href="#info">Introduction</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#schedule">SVD and Latent Semantic Analysis</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#grading">Dictionary Learning</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#late">Random Forest</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#prereqs">Boosting</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#faq">Discussion</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#project">Conclusion</a>
+    </li>
+</ul>
+</div>
+
+</div>
+
+<p><a name="info"></a></p>
+<div class="card">
+
+  <h2 id="course-information">Course Information</h2>
+
+  <p>This is an exciting time to be studying (Deep) Machine Learning, or Representation Learning, or for lack of a better term, simply Deep Learning!</p>
+
+  <p>Deep Learning is rapidly emerging as one of the most successful and widely applicable set of techniques across a range of domains
+(vision, language, speech, reasoning, robotics, AI in general), leading to some <a href="https://en.wikipedia.org/wiki/Amazon_Alexa">pretty</a> <a href="https://code.facebook.com/posts/289921871474277/transitioning-entirely-to-neural-machine-translation/">significant</a> <a href="https://code.facebook.com/posts/804694409665581/powering-facebook-experiences-with-ai/">commercial</a> <a href="https://www.recode.net/2017/4/19/15364608/autonomous-self-driving-cars-impact-disruption-society-mobility">success</a>
+and <a href="https://code.facebook.com/posts/158223298060942/using-ai-for-new-visual-storytelling-techniques-in-vr/">exciting</a> <a href="https://code.facebook.com/posts/1686672014972296/deal-or-no-deal-training-ai-bots-to-negotiate/">new</a> <a href="https://research.fb.com/advancing-computer-vision-technologies-at-cvpr-2017/">directions</a> that may previously have seemed out of <a href="https://en.wikipedia.org/wiki/AlphaGo">reach</a>.</p>
+
+  <p>This course will introduce students to the basics of Neural Networks (NNs) and expose them to some cutting-edge research.
+It is structured in modules (background, Convolutional NNs, Recurrent NNs, Deep Reinforcement Learning, Deep Structured Prediction).
+Modules will be presented via instructor lectures and reinforced with homeworks that teach theoretical and practical
+aspects. The course will also include a project which will allow students to explore an area of Deep Learning that interests them in more depth.</p>
+
+  <div class="row">
+    <div class="col-md-2">
+        <h3>Instructor</h3><br />
+        <div class="text-center">
+        <a href="http://www.cc.gatech.edu/~dbatra/">
+            <img class="dp" src="images/dhruv.jpg" /><br />
+            <p>Dhruv Batra</p>
+        </a>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <h3>Teaching Assistants</h3><br />
+        <div class="row">
+            <div class="col-sm col text-center">
+                <a href="https://dexter1691.github.io">
+                    <img class="dp" src="images/harsh.jpg" /><br />
+                    <p>Harsh Agrawal</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="https://www.linkedin.com/in/njain304/">
+                    <img class="dp" src="images/neha.jpg" /><br />
+                    <p>Neha Jain</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="http://ashwinkalyan.com/">
+                    <img class="dp" src="images/ashwin.jpg" /><br />
+                    <p>Ashwin Kalyan</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="">
+                    <img class="dp" src="images/harish.png" /><br />
+                    <p>Harish Kamath</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="https://www.linkedin.com/in/anishimehta/">
+                    <img class="dp" src="images/anishi.jpg" /><br />
+                    <p>Anishi Mehta</p>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col text-center">
+                <a href="https://nirbhayjm.github.io/">
+                    <img class="dp" src="images/nirbhay.jpg" /><br />
+                    <p>Nirbhay Modhe</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="https://www.michaelpiseno.com/">
+                    <img class="dp" src="images/michael.jpg" /><br />
+                    <p>Michael Piseno</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="https://virajprabhu.github.io/">
+                    <img class="dp" src="images/viraj.png" /><br />
+                    <p>Viraj Prabhu</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+                <a href="https://sarahwie.github.io">
+                    <img class="dp" src="images/sarah.jpg" /><br />
+                    <p>Sarah Wiegreffe</p>
+                </a>
+            </div>
+            <div class="col-sm col text-center">
+            </div>
+        </div>    </div>
+</div>
+
+  <dl class="dl-horizontal">
+<br />
+    <br />
+    <dt>Class meets</dt>
+    <dd>Tuesday, Thursday 12:00 - 1:15 pm; College of Business 100</dd>
+    <br />
+    <dt>Piazza</dt>
+    <dd><a href="https://piazza.com/gatech/fall2019/cs48037643">piazza.com/gatech/fall2019/cs48037643</a></dd>
+    <dt>Canvas</dt>
+    <dd><a href="">To be announced!</a></dd>
+    <dt>Gradescope</dt>
+    <dd>CS4803: <a href="https://www.gradescope.com/courses/56799">gradescope.com/courses/56799</a></dd>
+    <dd>CS7643: <a href="https://www.gradescope.com/courses/53817">gradescope.com/courses/53817</a></dd>
+    <dt>Staff Mailing List</dt>
+    <dd><a href="mailto:f19-cs4803-cs7643-staff@googlegroups.com">f19-cs4803-cs7643-staff@googlegroups.com</a></dd>
+<br />
+</dl>
+
+</div>
+
+<p><a name="schedule"></a></p>
+<div class="card">
+
+  <h2 id="schedule">Schedule</h2>
+  <table class="table table-hover">
+    <thead>
+        <tr class="table-active">
+            <td style="width: 100px;">Date</td>
+            <td style="width: 380px;">Topic</td>
+            <td style="width: 500px;">Optional Reading</td>
+        </tr>
+    </thead>
+    <tbody>
+   <tr>
+      <td>W1: Aug 20</td>
+      <td>
+         Class Administrativia.
+         <br />
+         <a href="https://www.cc.gatech.edu/classes/AY2020/cs7643_fall/assets/ps0.pdf"> PS0 out</a>
+         <a href="slides/L1_intro.pptx">Slides (pptx)</a>,
+         <a href="slides/L1_intro.pdf">Slides (pdf)</a>.
+      </td>
+      <td>
+         <ul>
+            <li> <a href="http://www.nature.com/nature/journal/v521/n7553/pdf/nature14539.pdf">LeCun et al., Nature '15</a> </li>
+            <li> <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?reload=true&amp;arnumber=1056774">Shannon, 1956 </a> </li>
+            <li> <a href="https://www.deeplearningbook.org/contents/linear_algebra.html">DL book: Linear Algebra background</a></li>
+            <li> <a href="https://www.deeplearningbook.org/contents/prob.html">DL book: Probability background</a></li>
+            <li> <a href="https://www.deeplearningbook.org/contents/ml.html">DL book: ML Background</a></li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <td>W1: Aug 22</td>
+      <td>
+         Image Classification and k-NN.
+         <br />
+         <a href="slides/L2_knn.pptx">Slides</a>,
+         <a href="slides/L2_knn_annotated.pdf">Slides (annotated)</a>.
+         <br />
+         <a href="slides/L2_supervised_learning_notes.pdf">Supervised Learning notes</a>,
+         <a href="slides/L2_knn_notes.pdf">k-NN notes</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W2: Aug 27</td>
+      <td>
+         Linear Classifiers, Loss Functions.
+         <br />
+         <a href="slides/L3_linear_classification.pptx">Slides</a>,
+         <a href="slides/L3_linear_classification_annotated.pdf">Slides (annotated)</a>.
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W2: Aug 29</td>
+      <td>
+         Regularization, Neural Networks.
+         <br />
+         <b>PS/HW1 out</b>
+         <br />
+         <a href="slides/L4_regularization_neural_nets.pptx">Slides</a>,
+         <a href="slides/L4_regularization_neural_nets_annotated.pdf">Slides (annotated)</a>.
+         <br />
+      </td>
+      <td>
+         <ul>
+            <li><a href="https://www.deeplearningbook.org/contents/mlp.html">DL book: Deep Feedforward Nets</a></li>
+            <li><a href="https://www.deeplearningbook.org/contents/regularization.html">DL book: Regularization for DL</a></li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="">
+      <td>W3: Sep 3</td>
+      <td>Optimization, Computing Gradients.
+         <br />
+         <a href="slides/L5_optimization_gradients.pptx">Slides</a>,
+         <a href="slides/L5_optimization_gradients_annotated.pdf">Slides (annotated)</a>.
+         <br />
+         <a href="slides/L5_gradients_notes.pdf">Gradients notes</a>.
+      </td>
+      <td>
+         <ul>
+            <li><a href="https://www.deeplearningbook.org/contents/optimization.html">DL book: Optimization for Training Deep Models</a></li>
+            <li><a href="https://explained.ai/matrix-calculus/index.html">Matrix calculus for deep learning</a></li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="">
+      <td>W3: Sep 5</td>
+      <td>
+        Forward mode vs Reverse mode Auto-diff. Computational Flow Graphs.
+         <br />
+         <a href="slides/L6_auto_diff.pptx">Slides</a>,
+         <a href="slides/L6_auto_diff_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1502.05767">Automatic Differentiation Survey, Baydin et al.</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W4: Sep 10</td>
+      <td>
+        Backprop.
+         <br />
+         <a href="slides/L7_backprop.pptx">Slides</a>,
+         <a href="slides/L7_backprop_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W4: Sep 12</td>
+      <td>Backprop (Pt 2).
+         <br />
+         <a href="slides/L8_backprop2.pptx">Slides</a>,
+         <a href="slides/L8_backprop2_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="">
+      <td>W5: Sep 17</td>
+      <td>CNNs 1: Convolutions, FC vs Conv Layers.
+         <br />
+         <a href="slides/L9_cnns.pptx">Slides</a>,
+         <a href="slides/L9_cnns_annotated.pdf">Slides (annotated)</a>.
+         <br />
+         <a href="slides/L9_cnns_notes.pdf">CNNs notes</a>.
+      </td>
+      <td>
+         <ul>
+            <li><b><a href="https://www.deeplearningbook.org/contents/convnets.html">DL book: Convolutional Networks</a></b></li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="">
+      <td>W5: Sep 19</td>
+      <td>CNNs 2: Stride, pooling, fc layers as conv.
+         <br />
+         <a href="slides/L10_cnns2.pptx">Slides</a>,
+         <a href="slides/L10_cnns2_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td>
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W6: Sep 24</td>
+      <td>CNNs 3: Backprop in conv layers, convolution as Toeplitz matrices.
+         <br />
+         <a href="slides/L11_cnns3.pptx">Slides</a>,
+         <a href="slides/L11_cnns3_annotated.pdf">Slides (annotated)</a>.
+         <br />
+         <a href="slides/L11_cnns_backprop_notes.pdf">CNNs Backprop notes</a>.
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1605.06211">Fully Convolutional Networks for Semantic Segmentation</a> </li>
+         </ul>          
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W6: Sep 26</td>
+      <td>CNN Architectures for 2D object detection (RCNN derivatives) and 3D CNNs detection+segmentation (PointNet).
+         <br />
+         <a href="slides/L12_cnns_detection_2d3d.pdf">Slides (pdf)</a>.
+         <br />
+         <b>HW1 due, HW2 out</b>
+      </td>
+      <td>
+      </td>
+   </tr>
+   <tr class="">
+      <td>W7: Oct 1</td>
+      <td>Visualizing CNNs. 
+         <br />
+         <a href="slides/L13_cnns_vis.pptx">Slides</a>, <a href="slides/L13_cnns_vis.pdf">Slides (pdf)</a>. 
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1706.07979">Methods for Interpreting and Understanding Deep Neural Networks </a> </li>
+            <li> <a href="https://arxiv.org/abs/1704.05796">Network Dissection: Quantifying Interpretability of Deep Visual Representations</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="">
+      <td>W7: Oct 3</td>
+      <td>deconv/upconv/transposed-conv. RNNS 1.
+         <br />
+         <a href="slides/L14_rnns.pptx">Slides</a>,
+         <a href="slides/L14_rnns_annotated.pdf">Slides (annotated)</a>.
+         <br />
+         <a href="slides/L14_rnns_notes.pdf">RNNs notes</a>.
+      </td>
+      &lt;/td&gt;
+      <td>
+         <ul>
+            <li> <a href="https://www.deeplearningbook.org/contents/rnn.html">DL Book: Sequential Modeling and Recurrent Neural Networks (RNNs)</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W8: Oct 8</td>
+      <td>RNNs 2: LSTMs, CNNs+RNNs.
+         <br />
+         <a href="slides/L15_rnns2.pptx">Slides</a>,
+         <a href="slides/L15_rnns2_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1411.4555">Show and Tell: A Neural Image Caption Generator</a> </li>
+            <li> <a href="https://arxiv.org/abs/1612.07182">Show, Attend and Tell</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W8: Oct 10</td>
+      <td>RNNs 3: Transformers, BERT.
+         <br />
+         <b>HW2 due, HW3 out</b>
+         <br />
+         <a href="slides/L16_attention_transformers.pdf">Slides</a>, <a href="slides/L16_admin.pdf">HW1 analysis</a>.
+         <br />
+      </td>
+      <td>
+      <ul>
+      <li> <a href="https://arxiv.org/pdf/1706.03762.pdf">Attention is all you need</a> </li>
+         <li> <a href="https://arxiv.org/pdf/1810.04805.pdf">BERT Paper</a> </li>
+         <li> <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> </li>
+      </ul>
+      </td>
+   </tr>
+   <tr class="light-mod2">
+      <td>W9: Oct 15</td>
+      <td>Fall Student Recess.
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="">
+      <td>W9: Oct 17</td>
+      <td>Guest Lecture by Peter Anderson on Vision + Language (CNN+RNNs).
+         <br />
+         <a href="slides/L17_vl.pptx">Slides</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W10: Oct 22</td>
+      <td>RL background.
+         <br />
+         <a href="slides/L18_rl1.pptx">Slides</a>, <a href="slides/L18_rl1.pdf">Slides (pdf)</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W10: Oct 24</td>
+      <td>RL: Dynamic Programming (Policy Iteration), Q-Learning, DQN.
+         <br />
+         <a href="slides/L19_rl2.pptx">Slides</a>,
+         <a href="slides/L19_rl2_annotated.pdf">Slides (annotated)</a>, <a href="slides/L19_admin.pdf">HW2 analysis</a>.
+         <br />
+         <b>HW3 due, HW4 out</b>
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="">
+      <td>W11: Oct 29</td>
+      <td>RL: Policy Gradients, REINFORCE, Actor-Critic.
+         <br />
+         <a href="slides/L20_rl3_policy_gradients.pptx">Slides</a>, <a href="slides/L20_rl3_policy_gradients.pdf">Slides (pdf)</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="">
+      <td>W11: Oct 31</td>
+      <td>Guest Lecture by Michael Cogswell on Unsupervised Learning and Generative Modeling.
+         <br />
+         <a href="slides/L21_generative1.pptx">Slides</a>, <a href="slides/L21_generative1.pdf">Slides (pdf)</a>.
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1701.00160">NIPS 2016 Tutorial: Generative Adversarial Networks</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W12: Nov 5</td>
+      <td>Guest Lecture by Erik Wijmans on A2C, PPO, with applications to PointGoalNav (CNNs+RNNs+RL).
+         <br />
+         <a href="slides/L22_ppo_pointnav.pdf">Slides (pdf)</a>,
+         <a href="slides/L22_ppo_pointnav.key">Slides (Keynote)</a>
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W12: Nov 7</td>
+      <td>VAEs 1.
+         <br />
+         <a href="slides/L23_generative2.pptx">Slides</a>,
+         <a href="slides/L23_generative2_annotated.pdf">Slides (annotated)</a>, <a href="slides/L23_kmeans_gmm_notes.pdf">Notes</a>.
+         <br />
+         <b>HW4 due</b>
+         <br />
+      </td>
+      <td>
+         <ul>
+            <li> <a href="https://arxiv.org/abs/1606.05908">Tutorial on Variational Autoencoders</a> </li>
+         </ul>
+      </td>
+   </tr>
+   <tr class="light-mod2">
+      <td>W13: Nov 12</td>
+      <td>CVPR Deadline (No class).
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod2">
+      <td>W13: Nov 14</td>
+      <td>CVPR Deadline (No class).
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W14: Nov 19</td>
+      <td>VAEs 2.
+         <br />
+         <a href="slides/L24_generative3.pptx">Slides</a>,
+         <a href="slides/L24_generative3_annotated.pdf">Slides (annotated)</a>, <a href="slides/L24_gmm_em_notes.pdf">Notes</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W14: Nov 21</td>
+      <td>VAEs 3.
+         <br />
+         <a href="slides/L25_generative4.pptx">Slides</a>,
+         <a href="slides/L25_generative4_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td></td>
+   </tr>
+   <tr class="">
+      <td>W15: Nov 26</td>
+      <td>Advanced Topics: Meta-Learning.
+         <br /> <a href="slides/L26_meta_learning.pdf">Slides</a>
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod2">
+      <td>W15: Nov 28</td>
+      <td>Thanksgiving break.
+         <br />
+      </td>
+      <td></td>
+   </tr>
+   <tr class="light-mod1">
+      <td>W16: Dec 3</td>
+      <td>Advanced Topics and Wrap-up.
+         <br />
+         <a href="slides/L27_gans_and_done.pptx">Slides</a>,
+         <a href="slides/L27_gans_and_done_annotated.pdf">Slides (annotated)</a>.
+      </td>
+      <td></td>
+   </tr>
+</tbody>
+</table>
+</div>
+
+<p><a name="grading"></a></p>
+<div class="card">
+
+  <h2 id="grading">Grading</h2>
+
+  <ul>
+    <li>80% Homework (4 homeworks)</li>
+    <li>20% Final Project</li>
+    <li>5% (potential bonus) Class Participation</li>
+  </ul>
+
+</div>
+
+<p><a name="late"></a></p>
+<div class="card">
+
+  <h2 id="late-policy-for-deliverables">Late policy for deliverables</h2>
+
+  <ul>
+    <li>No penalties for medical reasons or emergencies. Please see <a href="http://www.catalog.gatech.edu/rules/4/">GT Catalog</a> for rules about contacting the office of the Dean of Students.</li>
+    <li>Every student has 7 free late days (7 x 24-hour chunks) for this course.</li>
+    <li>After all free late days are used up, penalty is 25% for each additional late day.</li>
+  </ul>
+
+</div>
+
+<p><a name="prereqs"></a></p>
+<div class="card">
+
+  <h2 id="prerequisites">Prerequisites</h2>
+
+  <p>CS 4803/7643 should not be your first exposure to machine learning. Ideally, you need:</p>
+
+  <ul>
+    <li>Intro-level Machine Learning
+      <ul>
+        <li>CS 3600 for the undergraduate section and CS 7641/ISYE 6740/CSE 6740 or equivalent for the graduate section.</li>
+      </ul>
+    </li>
+    <li>Algorithms
+      <ul>
+        <li>Dynamic programming, basic data structures, complexity (NP-hardness)</li>
+      </ul>
+    </li>
+    <li>Calculus and Linear Algebra
+      <ul>
+        <li>positive semi-definiteness, multivariate derivates (be prepared for lots and lots of gradients!)</li>
+      </ul>
+    </li>
+    <li>Programming
+      <ul>
+        <li>This is a demanding class in terms of programming skills.</li>
+        <li>HWs will involve a mix of languages (Python, C++) and libraries (PyTorch).</li>
+        <li>Your language of choice for project.</li>
+      </ul>
+    </li>
+    <li>Ability to deal with abstract mathematical concepts</li>
+  </ul>
+
+</div>
+
+<p><a name="project"></a></p>
+<div class="card">
+
+  <h2 id="project-details-20-of-course-grade">Project Details (20% of course grade)</h2>
+
+  <p>The class project is meant for students to (1) gain experience implementing
+deep models and (2) try Deep Learning on problems that interest them. The
+amount of effort should be at the level of one homework assignment per
+group member (1-5 people per group).</p>
+
+  <p>A PDF write-up describing the project in a self-contained manner will be the sole
+deliverable.  Your final write-up is required to be between 4 - 6 pages using the 
+template <a href="http://cvpr2020.thecvf.com/sites/default/files/2019-09/cvpr2020AuthorKit.zip">here</a>, 
+structured like a paper from a computer vision conference 
+(CVPR, ECCV, ICCV, etc.). Please use this template so we can fairly judge all student 
+projects without worrying about altered font sizes, margins, etc. After the class, we 
+will post all the final reports online so that you can read about each others’ work. 
+Addtionally, we will allow people to upload additional code, videos and other supplementary material
+as zip file similar to code upload for assignments.
+While the PDF may link to supplementary material, external documents and code, 
+such resources may or may not be used to evaluate
+the project. The final PDF should completely address all of the points in the
+rubrik described below.</p>
+
+  <h3 id="rubrik-60-points">Rubrik (60 points)</h3>
+
+  <p>We are not looking to see if you succeeded or failed at accomplishing what you
+set out to do. It’s ok if your results are not “good”. What matters is that
+you put in a reasonable effort, understand the project and how it related to
+Deep Learning in detail, and are able to clearly communicate that understanding.</p>
+
+  <p>A former DARPA director named George H. Heilmeier came up with a <a href="https://www.darpa.mil/work-with-us/heilmeier-catechism">list</a> of
+questions for evaluating research projects.
+We’ve adapted that list for our rubrik.</p>
+
+  <p>Introduction / Background / Motivation:</p>
+
+  <ul>
+    <li>(5 points) What did you try to do? What problem did you try to solve? Articulate your objectives using absolutely no jargon.</li>
+    <li>(5 points) How is it done today, and what are the limits of current practice?</li>
+    <li>(5 points) Who cares? If you are successful, what difference will it make?</li>
+  </ul>
+
+  <p>Approach:</p>
+
+  <ul>
+    <li>(10 points) What did you do exactly? How did you solve the problem? Why did you think it would be successful? Is anything new in your approach?</li>
+    <li>(5 points) What problems did you anticipate? What problems did you encounter? Did the very first thing you tried work?</li>
+  </ul>
+
+  <p>Experiments and Results:</p>
+
+  <ul>
+    <li>(10 points) How did you measure success? What experiments were used? What were the results, both quantitative and qualitative? Did you succeed? Did you fail? Why?</li>
+  </ul>
+
+  <p>In addition, 20 more points will be distributed based on:</p>
+
+  <ul>
+    <li>
+      <p>(5 points) Appropriate use of figures / tables / visualizations. Are the ideas presented with
+appropriate illustration? Are the results presented clearly; are the
+important differences illustrated?</p>
+    </li>
+    <li>
+      <p>(5 points) Overall clarity. Is the manuscript self-contained? Can a peer who has
+also taken Deep Learning understand all of the points addressed above? Is
+sufficient detail provided?</p>
+    </li>
+    <li>
+      <p>(10 points) Finally, points will be distributed based on your understanding of how
+your project relates to Deep Learning. Here are some questions to think about:</p>
+      <ul>
+        <li>What was the structure of your problem? How did the structure of your model
+reflect the structure of your problem?</li>
+        <li>What parts of your model had learned parameters (e.g., convolution layers)
+and what parts did not (e.g., post-processing classifier probabilities into
+decisions)?</li>
+        <li>What representations of input and output did the neural network expect? How
+was the data pre/post-processed?</li>
+        <li>What was the loss function?</li>
+        <li>Did the model overfit? How well did the approach generalize?</li>
+        <li>What hyperparameters did the model have? How were they chosen? How did they
+affect performance? What optimizer was used?</li>
+        <li>What Deep Learning framework did you use?</li>
+        <li>What existing code or models did you start with and what did those starting
+points provide?</li>
+      </ul>
+
+      <p>At least some of these questions and others should be relevant to your
+  project and should be addressed in the PDF. You do not need to address
+  all of them in full detail. Some may be irrelevant to your project and
+  others may be standard and thus require only a brief mention. For example,
+  it is sufficient to simply mention the cross-entropy loss was used and not
+  provide a full description of what that is. Generally, provide enough
+  detail that someone with an appropriate background (in both Deep Learning
+  and your domain of choice) could replicate the main parts of your project
+  somewhat accurately, probably missing a few less important details.</p>
+    </li>
+  </ul>
+
+  <p>Submit the final report by uploading to “Final Project” assignment on Gradescope. 
+There will be a group assignment corresponding to the project submission. 
+Every group should submit the report once and all group
+member names should be listed through the gradescope interface.
+See instructions <a href="https://www.youtube.com/watch?v=rue7p_kATLA"> here.</a>
+The supplementary material should also be uploaded as zip file to the Final Project (Supplementary Material) assignment.</p>
+
+</div>
+<p><a name="faq"></a></p>
+<div class="card">
+
+  <h2 id="faqs">FAQs</h2>
+  <ul>
+    <li>
+      <p>The class is full. Can I still get in?</p>
+
+      <p>Sorry. The course admins in CoC control this process. Please talk to them.</p>
+    </li>
+    <li>
+      <p>Unregistered Students who intend to register:</p>
+
+      <p>If you are not registered for this course, you will not have access to gradescope for submission of PS0. Please fill the following form in order to be added to gradescope and be able to submit PS0:
+  <a href="https://forms.gle/sG8vB1vayXzgsKAA9">https://forms.gle/sG8vB1vayXzgsKAA9</a></p>
+
+      <p>Students who individually emailed us and have not been added yet - you may have left out the details of which course instance you are planning to take (either CS 7643 or CS 4803). There are two separate gradescope courses for the two instances. Please fill the above form in order to provide us with this information.</p>
+    </li>
+    <li>
+      <p>Registered students who are not able to access gradescope:</p>
+
+      <p>This will happen if you were registered to the course very recently. Gradescope rosters are synced periodically and it may take some time for you to receive a gradescope sign-up notification. If you still face problems with accessing gradescope, please post a comment below.</p>
+    </li>
+    <li>
+      <p>I am graduating this Fall and I need this class to complete my degree requirements. What should I do?</p>
+
+      <p>Talk to the advisor or graduate coordinator for your academic program.  They are keeping track of your degree requirements and will work with you if you need a specific course.</p>
+    </li>
+    <li>
+      <p>Can I audit this class or take it pass/fail?</p>
+
+      <p>No. Due to the large demand for this class, we will not be allowing audits or pass/fail. Letter grades only. This is to make sure students who want to take the class for credit can.</p>
+    </li>
+    <li>
+      <p>Can I simply sit in the class (no credits)?</p>
+
+      <p>In general, we welcome members of the Georgia Tech community (students, staff, and/or faculty) to sit-in. Out of courtesy, we would appreciate if you let us know beforehand (via email or in person). If the classroom is full, we would ask that you please allow registered students to attend.</p>
+    </li>
+    <li>
+      <p>I have a question. What is the best way to reach the course staff?</p>
+
+      <p>Registered students – your first point of contact is Piazza (so that other students may benefit from your questions and our answers).
+  If you have a personal matter, email us at the class mailing list <a href="mailto:f19-cs4803-cs7643-staff@googlegroups.com">f19-cs4803-cs7643-staff@googlegroups.com</a></p>
+    </li>
+  </ul>
+
+</div>
+
+<p><a name="related"></a></p>
+<div class="card">
+
+  <h2 id="related-classes--online-resources">Related Classes / Online Resources</h2>
+
+  <ul>
+    <li><a href="http://cs231n.stanford.edu/">CS231n Convolutional Neural Networks for Visual Recognition, Stanford</a></li>
+    <li><a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Machine Learning, Oxford</a></li>
+    <li><a href="http://techtalks.tv/deep_learning_nyu_spring_2014/">Deep Learning, New York University</a></li>
+    <li><a href="http://deeplearning.cs.cmu.edu/">Deep Learning, CMU</a></li>
+    <li><a href="http://www.cs.umd.edu/~djacobs/CMSC828DeepLearning/Syllabus.htm">Deep Learning, University of Maryland</a></li>
+    <li><a href="http://info.usherbrooke.ca/hlarochelle/neural_networks/content.html">Hugo Larochelle’s Neural Networks class</a></li>
+  </ul>
+
+  <h2 id="book">Book</h2>
+
+  <ul>
+    <li><a href="http://goodfeli.github.io/dlbook/">Deep Learning, Ian Goodfellow, Aaron Courville, and Yoshua Bengio, MIT Press</a></li>
+  </ul>
+
+  <h2 id="overviews">Overviews</h2>
+
+  <ul>
+    <li><a href="http://www.nature.com/nature/journal/v521/n7553/pdf/nature14539.pdf">Deep Learning,  Yann LeCun, Yoshua Bengio, and Geoffrey Hinton, Nature</a></li>
+    <li><a href="http://arxiv.org/abs/1206.5538">Representation Learning: A Review and New Perspectives,  Yoshua Bengio, Aaron Courville, and Pascal Vincent</a></li>
+  </ul>
+
+</div>
+
+<p><a name="extra"></a></p>
+<div class="card">
+
+  <h2 id="note-to-people-outside-georgia-tech">Note to people outside Georgia Tech</h2>
+
+  <p>Feel free to use the slides and materials available online here.
+If you use our slides, an appropriate attribution is requested.
+Please email the instructor with any corrections or improvements.</p>
+
+</div>
+
+        </div>
+    </div>
+
+    <footer style="font-weight: 300;">
+    <hr>
+    &#169; 2019 Georgia Tech
+</footer>
+
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
