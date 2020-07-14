@@ -99,11 +99,13 @@
         $$M = U\ S\ V$$
         If \(R\) is an $m$ by $n$ matrix containing the ratings of every user in each row, then $U$ is an $m$ by $r$ matrix containing the tastes of the users and $V$ is an $r$ by $n$ the latent variables encoding categories of products. We select the $k$ most important components by analyzing the $r$ singular values contained in $S$</p>
         
-        <h4>Dictionary Learning</h4>
+        <h4><a href="https://www.di.ens.fr/sierra/pdfs/icml09.pdf">Dictionary Learning</a></h4>
         <p>Here we find $U$ and $V$ by solving the following optimization problem:
-        $$argmin_{(U,V)}\ 0.5\ || Y - U V ||_2^2 + alpha * || U ||_1
+        $$argmin_{(U,V)}\ 0.5\ || M - U V ||_2^2 + alpha * || U ||_1
             
             \\with\ || V_k ||_2 = 1\ \text{for all  $0 <= k < n_{components}$}$$
+
+        Several algorithms can be used to solve this problem including <a href="http://statweb.stanford.edu/~tibs/ftp/lars.pdf">LARS (Least Angle Regression)</a> or Orthogonal Matching Pursuit algorithm.
         </p>
       </div>
 
