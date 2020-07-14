@@ -95,7 +95,7 @@
         These algorithms aim at expressing latent variables representing abstract categories of products and users tastes by factorizing a matrix of ratings.</p>
         <P>The rating matrix we use is made of the products used by each user at month $n-1$ (month preceding the test set data). It is an $m$ by $n$ sparse matrix with $m$ the number of users and $n$ the number of products. By factoring this matrix in 2 other $U$ and $V$ matrices in a lower dimension and reconstructing it by multiplying the 2 generated matrices, we can express users tastes for products they have not tried yet.</p>
         
-        <img src="/santander/img/svd.PNG" width="730" height="230">
+        <img src="/santander/img/svd.PNG" width="500" height="500">
         
         <h4>SVD</h4>
         <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product
