@@ -89,14 +89,15 @@
       <div class="card">
         <h3>Matrix Factorization Techniques</h3>
         <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning.
-        These algorithms aim at expressing latent variables representing abstract categories of products and users tastes by factorizing a matrix of ratings.
-        The rating matrix we use is made of the products used by each user at month $n-1$ (month preceding the test set data). It is an $m$ by $n$ sparse matrix with $m$ the number of users and $n$ the number of products. By factoring this matrix in 2 other $U$ and $V$ matrices in a lower dimension and reconstructing it by multiplying the 2 generated matrices, we can express users tastes for products they have not tried yet.
+        These algorithms aim at expressing latent variables representing abstract categories of products and users tastes by factorizing a matrix of ratings.</p>
+        <P>The rating matrix we use is made of the products used by each user at month $n-1$ (month preceding the test set data). It is an $m$ by $n$ sparse matrix with $m$ the number of users and $n$ the number of products. By factoring this matrix in 2 other $U$ and $V$ matrices in a lower dimension and reconstructing it by multiplying the 2 generated matrices, we can express users tastes for products they have not tried yet.</p>
+        
         <img src="/santander/img/svd.PNG" width="730" height="230">
-        </p>
+        
         <h4>SVD</h4>
         <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product
         $$M = U\ S\ V$$
-        If \(R\) is an $m$ by $n$ matrix containing the ratings of every user in each row, then $U$ is an $m$ by $r$ matrix containing the tastes of the users and $V$ is an $r$ by $n$ the latent variables encoding categories of products.</p>
+        If \(R\) is an $m$ by $n$ matrix containing the ratings of every user in each row, then $U$ is an $m$ by $r$ matrix containing the tastes of the users and $V$ is an $r$ by $n$ the latent variables encoding categories of products. We select the $k$ most important components by analyzing the $r$ singular values contained in $S$</p>
         
         <h4>Dictionary Learning</h4>
         <p>Here we find $U$ and $V$ by solving the following optimization problem:
