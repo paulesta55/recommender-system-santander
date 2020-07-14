@@ -58,7 +58,7 @@
               <a class="nav-link" href="#matrix">Matrix Factorization Techniques</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#forest">Supervised Classifications</a>
+              <a class="nav-link" href="#supervised">Supervised Classifications</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#discussion">Results</a>
@@ -100,16 +100,16 @@
         
         <h4>Dictionary Learning</h4>
         <p>Here we find $U$ and $V$ by solving the following optimization problem:
-        $$argmin 0.5 || Y - U V ||_2^2 + alpha * || U ||_1
-            (U,V)
-            with || V_k ||_2 = 1 for all  0 <= k < n_components$$
+        $$argmin_{(U,V)}\ 0.5 || Y - U V ||_2^2 + alpha * || U ||_1
+            
+            \\with\ || V_k ||_2 = 1\ \text{for all  $0 <= k < n_components$}$$
         </p>
       </div>
 
 
 
 
-      <p><a name="forest"></a></p>
+      <p><a name="supervised"></a></p>
       <div class="card">
 
         <h3>Random Forest</h3>
