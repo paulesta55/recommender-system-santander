@@ -88,12 +88,22 @@
       <p><a name="matrix"></a></p>
       <div class="card">
         <h3>Matrix Factorization Techniques</h3>
-        <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning</p>
+        <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning.
+        These algorithms aim at expressing latent variables representing abstract categories of products and users tastes by factorizing a matrix of ratings.
+        <img src="/santander/img/svd.PNG" width="730" height="230">
+        The rating matrix we use is made of the products used by each user at month $n-1$ (month preceding the test set data).
+        </p>
+        <h4>SVD</h4>
         <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product
         $$M = U\ S\ V$$
-        If \(R\) is an $n$ by $m$ matrix containing the ratings of every user in each row, then \$U\$ is an \$n\$ by \$r\$ matrix contains the tastes of the users and \$V\$ the latent variables containing information about </p>
-        <img src="/santander/img/svd.PNG" width="730" height="230">
-        <h3>Dictionary Learning</h3>
+        If \(R\) is an $m$ by $n$ matrix containing the ratings of every user in each row, then $U$ is an $m$ by $r$ matrix containing the tastes of the users and $V$ is an $r$ by $n$ the latent variables encoding categories of products.</p>
+        
+        <h4>Dictionary Learning</h4>
+        <p>Here we find $U$ and $V$ by solving the following optimization problem:
+        $$argmin 0.5 || Y - U V ||_2^2 + alpha * || U ||_1
+            (U,V)
+            with || V_k ||_2 = 1 for all  0 <= k < n_components$$
+        </p>
       </div>
 
 
