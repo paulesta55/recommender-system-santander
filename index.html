@@ -123,13 +123,14 @@
       <p>Here we consider this recommendation problem as a classification problem. Therefore, we try to predict the best recommendations for every user for the month of the test set. For every user we predict a probability for each product and select the 7 product with highest probability</p>
 
       <h4>Ridge Classifier</h4>
+      <p>
       We first use a classical regularized logistic regression technique. We choose $ \alpha=10 $ using cross-validation.
-      For this technique we find a Mean Average Precision @ 7 of 0.00310. 
+      For this technique we find a Mean Average Precision @ 7 of 0.00310. </p>
       
       <h4>Gradient Boosting</h4>
+      <p>
       Gradient boosting is an ensemble method used to learn trees. The main idea is to learn the decision function $\hat{F}(x)$ as a weighted sum of decision trees $h_i$. 
-$$\hat{F}(x) = \sum_{i=1}^M\gamma_i h_i(x) + const$$
-      Contretely one tree is learned at every iteration and weights are updated using the following optimization problem. 
+$$\hat{F}(x) = \sum_{i=1}^M\gamma_i h_i(x) + const$$</p>
       </div>
 
 
