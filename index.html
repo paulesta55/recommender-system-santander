@@ -48,7 +48,7 @@
         <a class="nav-link" href="#intro">Introduction</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#svd">Matrix Factorization Techniques</a>
+        <a class="nav-link" href="#matrix">Matrix Factorization Techniques</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#forest">Supervised Classifications</a>
@@ -78,18 +78,18 @@
   <p>The first challenge with this dataset is that a significant part of the data is missing. Hence, we spent some time working on "filling holes" in the data</p>
 </div>
 
-<p><a name="svd"></a></p>
+<p><a name="matrix"></a></p>
 <div class="card">
-  <h3>SVD</h3>
+  <h3>Matrix Factorization Techniques</h3>
+  <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning</p>
 <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product</p>
 $$M = U\ S\ V$$
 <img src="img/SVD.png"
-</div>
-
-<p><a name="dico"></a></p>
-<div class="card">
 <h3>Dictionary Learning</h3>
 </div>
+
+
+
 
 <p><a name="forest"></a></p>
 <div class="card">
