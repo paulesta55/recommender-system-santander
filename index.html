@@ -83,6 +83,9 @@
         <h4>Santander Product Recommendation</h4>
         <p>Our project focuses with Santander Product Recommendation dataset. This dataset contains 1.5  year  of Santander customer  behavioral data.Concretely, it is a CSV file with each row containing 46 indicators for one user for a specific month. 23 of these indicators are binary variables representing financial product bought by the customer.</p>
         <p>The first challenge with this dataset is that a significant part of the data is missing. Hence, we spent some time working on "filling holes" in the data</p>
+
+        <p>The metric used to evaluate our model performance will be the Mean Average Precisiondefined as follows:
+          $$ MAP@7=\frac{1}{|U|}\sum_{u=1}^{|U|}\frac{1}{min(m,7)}\sum_{k=1}^{min(n,7)} P(k),$$
       </div>
 
       <p><a name="matrix"></a></p>
@@ -120,7 +123,8 @@
       <p>Here we consider this recommendation problem as a classification problem. Therefore, we try to predict the best recommendations for every user for the month of the test set. For every user we predict a probability for each product and select the 7 product with highest probability</p>
 
       <h4>Ridge Classifier</h4>
-
+      We first use a classical regularized logistic regression technique. We choose $\alpha=10$ using cross-validation.
+      For this technique we find a Mean Average Precision @ 7 of 0.00310. 
       </div>
 
 
