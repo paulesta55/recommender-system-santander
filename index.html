@@ -83,6 +83,7 @@
 
         <p>The metric used to evaluate our models performances is the Mean Average Precision defined as follows:
           $$ MAP@7=\frac{1}{|U|}\sum_{u=1}^{|U|}\frac{1}{min(m,7)}\sum_{k=1}^{min(n,7)} P(k),$$
+          where $|U|$ is the number of predictions (i.e. number of distinct users), $P(k)$ is the precision if we keep $k$ predicted products, $n$ is the final number of predicted products and $m$ is the number of new products.
       </div>
 
       <p><a name="matrix"></a></p>
