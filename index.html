@@ -2,125 +2,133 @@
 <html>
 
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
 
-        <title>CS 7641 Machine Learning: Product Recommendation Systems</title>
+  <title>CS 7641 Machine Learning: Product Recommendation Systems</title>
 
-        <link rel="canonical" href="http://localhost:4000/">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/santander/css/main.css" >
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 
-        <!-- <link rel="shortcut icon" href="/classes/AY2020/cs7643_fall/images/icon.png"> -->
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/santander/css/main.css" >
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <!-- <link rel="shortcut icon" href="/classes/AY2020/cs7643_fall/images/icon.png"> -->
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true
+  }
+});
+</script>
 <script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
 </head>
 
 
 <body>
-    <nav class="navbar">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="https://paulesta55.github.io/santander/">CS 7641 Machine Learning: Product Recommendation Systems</a>
-                <div style="margin-top: 5px; color:white;">Paul Estano & Gregory Hessler</div>
-            </div>
-    </nav>
-    <div class="container">
-        <div class="content">
-            <div style="padding-top: 15px;" class="card">
+  <nav class="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://paulesta55.github.io/santander/">CS 7641 Machine Learning: Product Recommendation Systems</a>
+      <div style="margin-top: 5px; color:white;">Paul Estano & Gregory Hessler</div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="content">
+      <div style="padding-top: 15px;" class="card">
 
-  <h1 id="cs-4803--7643-deep-learning">CS 7641 Machine Learning: Product Recommendation Systems</h1>
+        <h1 id="cs-4803--7643-deep-learning">CS 7641 Machine Learning: Product Recommendation Systems</h1>
 
-  <h3 style="font-weight: 300;">Paul Estano & Gregory Hessler</h3>
+        <h3 style="font-weight: 300;">Paul Estano & Gregory Hessler</h3>
 
-  <hr />
+        <hr />
 
-  <div class="row">
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link" href="#intro">Introduction</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#matrix">Matrix Factorization Techniques</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#forest">Supervised Classifications</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#discussion">Results</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#discussion">Discussion</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#conclusion">Conclusion</a>
-    </li>
-</ul>
-</div>
+        <div class="row">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#matrix">Matrix Factorization Techniques</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#forest">Supervised Classifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#discussion">Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#discussion">Discussion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conclusion">Conclusion</a>
+            </li>
+          </ul>
+        </div>
 
-</div>
+      </div>
 
-<p><a name="intro"></a></p>
-<div class="card">
+      <p><a name="intro"></a></p>
+      <div class="card">
 
-  <h3>Introduction</h3>
-  <p>A few years ago, recommendation systems attracted attention during the Netflix recommendations challeng\cite{netflix}. The purpose of this competition was to build a system for better user recommendations for the video streaming service. Recommendation systems have since become popular for many applications such as online marketplaces, music streaming services or social networks</p>
+        <h3>Introduction</h3>
+        <p>A few years ago, recommendation systems attracted attention during the Netflix recommendations challeng\cite{netflix}. The purpose of this competition was to build a system for better user recommendations for the video streaming service. Recommendation systems have since become popular for many applications such as online marketplaces, music streaming services or social networks</p>
 
-  <h4>Santander Product Recommendation</h4>
-  <p>Our project focuses with Santander Product Recommendation dataset. This dataset contains 1.5  year  of Santander customer  behavioral data.Concretely, it is a CSV file with each row containing 46 indicators for one user for a specific month. 23 of these indicators are binary variables representing financial product bought by the customer.</p>
-  <p>The first challenge with this dataset is that a significant part of the data is missing. Hence, we spent some time working on "filling holes" in the data</p>
-</div>
+        <h4>Santander Product Recommendation</h4>
+        <p>Our project focuses with Santander Product Recommendation dataset. This dataset contains 1.5  year  of Santander customer  behavioral data.Concretely, it is a CSV file with each row containing 46 indicators for one user for a specific month. 23 of these indicators are binary variables representing financial product bought by the customer.</p>
+        <p>The first challenge with this dataset is that a significant part of the data is missing. Hence, we spent some time working on "filling holes" in the data</p>
+      </div>
 
-<p><a name="matrix"></a></p>
-<div class="card">
-  <h3>Matrix Factorization Techniques</h3>
-  <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning</p>
-<p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product</p>
-$$M = U\ S\ V$$
-If $R$ is an $n$ by $m$ matrix containing the ratings of every user in each row, then $U$ is an $n$ by $r$ matrix contains the tastes of the users and $V$ the latent variables containing information about 
-<img src="/santander/img/SVD.png">
-<h3>Dictionary Learning</h3>
-</div>
-
-
+      <p><a name="matrix"></a></p>
+      <div class="card">
+        <h3>Matrix Factorization Techniques</h3>
+        <p>Here the objectif is to express latent variables respresenting the taste of the users and categories representing similarities between the products. We mainly use 2 unsupervised algorithms: SVD and Dictionary Learning</p>
+        <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product</p>
+        $$M = U\ S\ V$$
+        If $R$ is an $n$ by $m$ matrix containing the ratings of every user in each row, then $U$ is an $n$ by $r$ matrix contains the tastes of the users and $V$ the latent variables containing information about 
+        <img src="/santander/img/SVD.png">
+        <h3>Dictionary Learning</h3>
+      </div>
 
 
-<p><a name="forest"></a></p>
-<div class="card">
 
-<h3>Random Forest</h3>
-</div>
 
-<p><a name="boosting"></a></p>
-<div class="card">
-  <h3>Gradient Boosting</h3>
-</div>
+      <p><a name="forest"></a></p>
+      <div class="card">
 
-<p><a name="discussion"></a></p>
-<div class="card">
-<h3>Discussion</h3>
-</div>
-<p><a name="conclusion"></a></p>
-<div class="card">
+        <h3>Random Forest</h3>
+      </div>
 
- <h3>Conclusion</h3>
+      <p><a name="boosting"></a></p>
+      <div class="card">
+        <h3>Gradient Boosting</h3>
+      </div>
 
-</div>
+      <p><a name="discussion"></a></p>
+      <div class="card">
+        <h3>Discussion</h3>
+      </div>
+      <p><a name="conclusion"></a></p>
+      <div class="card">
 
-    <footer style="font-weight: 300;">
-    <hr>
-    &#169; 2020 Georgia Tech
-</footer>
+       <h3>Conclusion</h3>
+
+     </div>
+
+     <footer style="font-weight: 300;">
+      <hr>
+      &#169; 2020 Georgia Tech
+    </footer>
 
 
     <!-- mathjax -->
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
-</html>
+  </body>
+  </html>
