@@ -131,6 +131,8 @@
       <p>
       Gradient boosting is an ensemble method used to learn trees. The main idea is to learn the decision function $\hat{F}(x)$ as a weighted sum of decision trees $h_i$. 
 $$\hat{F}(x) = \sum_{i=1}^M\gamma_i h_i(x) + const$$</p>
+      Weights are updated at every iterations using gradient descent. 
+      Using XGBoost implementation we find an MAP of 0.02689 which is our best result.
       </div>
 
 
