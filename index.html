@@ -48,16 +48,13 @@
         <a class="nav-link" href="#intro">Introduction</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#svd">SVD and Latent Semantic Analysis</a>
+        <a class="nav-link" href="#svd">Matrix Factorization Techniques</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#dico">Dictionary Learning</a>
+        <a class="nav-link" href="#forest">Supervised Classifications</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#forest">Random Forest</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#boosting">Boosting</a>
+        <a class="nav-link" href="#discussion">Results</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#discussion">Discussion</a>
@@ -74,7 +71,7 @@
 <div class="card">
 
   <h3>Introduction</h3>
-  <p>A few years ago, recommendation systems attracted attention during the Netflix recommendations challenge\cite{netflix}. The purpose of this competition was to build a system for better user recommendations for the video streaming service. Recommendation systems have since become popular for many applications such as online marketplaces, music streaming services or social networks</p>
+  <p>A few years ago, recommendation systems attracted attention during the Netflix recommendations challeng\cite{netflix}. The purpose of this competition was to build a system for better user recommendations for the video streaming service. Recommendation systems have since become popular for many applications such as online marketplaces, music streaming services or social networks</p>
 
   <h4>Santander Product Recommendation</h4>
   <p>Our project focuses with Santander Product Recommendation dataset. This dataset contains 1.5  year  of Santander customer  behavioral data.Concretely, it is a CSV file with each row containing 46 indicators for one user for a specific month. 23 of these indicators are binary variables representing financial product bought by the customer.</p>
@@ -85,7 +82,8 @@
 <div class="card">
   <h3>SVD</h3>
 <p>The use of SVD to build a recommendation system has been introduced by Simon Funk during the Netflix Recommendation challenge. In his paper (Funk SVD), Funk uses an iterative algorithm to compute the SVD. Here we just use numpy built in SVD function to extract latent variables representing abstract categories of financial product</p>
-$$M = U\ V$$
+$$M = U\ S\ V$$
+<img src="img/SVD.png"
 </div>
 
 <p><a name="dico"></a></p>
