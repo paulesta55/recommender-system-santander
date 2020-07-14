@@ -133,12 +133,16 @@
 $$\hat{F}(x) = \sum_{i=1}^M\gamma_i h_i(x) + const$$</p>
       Weights are updated at every iterations using gradient descent. 
       Using XGBoost implementation we find an MAP of 0.02689 which is our best result. Our parameters are a maximum depth of 8 for every tree and a learning rate of 0.05.
+
       </div>
 
 
       <p><a name="discussion"></a></p>
       <div class="card">
         <h3>Discussion</h3>
+      
+        <p>Our best performing model is the gradient boosting model. However, the depth of the trees and the number of features make the model complicated to explain. </p>
+        <img src="/santander/img/tree.png" width="600" height="1000">
       </div>
       <p><a name="conclusion"></a></p>
       <div class="card">
