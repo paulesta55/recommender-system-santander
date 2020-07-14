@@ -8,16 +8,7 @@
   <meta name="description" content="">
 
   <title>CS 7641 Machine Learning: Product Recommendation Systems</title>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    tex2jax: {
-    inlineMath: [ ['$','$'], ["\\(","\\)"] ]
-  }
-});
-</script>
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+
   <link rel="canonical" href="http://localhost:4000/">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/santander/css/main.css" >
@@ -28,7 +19,14 @@
   <!-- <link rel="shortcut icon" href="/classes/AY2020/cs7643_fall/images/icon.png"> -->
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["\\$", "\\$"], ["\\(", "\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
 </head>
 
