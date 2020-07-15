@@ -136,7 +136,7 @@
       $$\hat{F}(x) = \sum_{m=0}^M\beta_m h(x;a_m) $$</p>
       <p>The "base learners" are usually simple functions like decision trees. The expansion coefficients $\beta_m$ and $a_m$ jointly fit to the training data in a forward “stage–wise” manner</p>
       <p>For $m=1,2,...,M$:
-        $$(\beta_m,a_m)=arg\ min_{ \beta,a}\ \sum_{i=1}^N\ L(y_i, F_{m-1}(x_i)+\beta h(x_i;a))$$
+        $$(\beta_m,a_m)=arg\ min_{ \beta,a} \sum_{i=1}^N\ L(y_i, F_{m-1}(x_i)+\beta h(x_i;a))$$
        and
        $$F_m(x)=F_{m-1}(x)+\beta_m h(x;a_m)$$
      Gradient boosting (Friedman, 2001) approximately solves (4) for arbitrary (differentiable)
