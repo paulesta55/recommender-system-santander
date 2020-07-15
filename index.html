@@ -135,6 +135,8 @@
       Gradient boosting is an ensemble method used to learn trees. The main idea is to learn the decision function $\hat{F}(x)$ as a weighted sum of "base learners" $h_m$. 
       $$\hat{F}(x) = \sum_{m=0}^M\beta_m h(x;a_m) $$</p>
       <p>The "base learners" are usually simple functions like decision trees. The expansion coefficients $\beta_m$ and $a_m$ jointly fit to the training data in a forward “stage–wise” manner</p>
+      <p>For m=1,2,...,M.:
+        $$(\beta_m,a_m)=arg\ min\_{\beta,a}\sum_{i=1}^N\ L(y_i, F_{m-1}(x_i)+\beta h(x_i;a)) $$
       Weights are updated at every iterations using gradient descent. 
       Using XGBoost implementation we find an MAP of 0.02689 which is our best result. Our parameters are a maximum depth of 8 for every tree and a learning rate of 0.05.
 
