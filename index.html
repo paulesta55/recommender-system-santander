@@ -143,7 +143,7 @@
 loss functions L(y, F(x)) with a two step procedure. First, the function h(x; a) is fit by least–
 squares
 
-$$a_m=arg\ min_{a,\rho} \sum_{i=1}^N [y_{im}-\rho h(x_i;a)]^2$$ to the current “pseudo”–residuals $$y_{im}=$$</p>
+$$a_m=arg\ min_{a,\rho} \sum_{i=1}^N [y_{im}-\rho h(x_i;a)]^2$$ to the current “pseudo”–residuals $$y_{im}=-[\frac{\partial L(y_i,F(x_i))}{\partial F(x_i)}]_{F(x)=F_{m-1}(x)}$$</p>
       Using XGBoost implementation we find an MAP of 0.02689 which is our best result. Our parameters are a maximum depth of 8 for every tree and a learning rate of 0.05.
 
       </div>
