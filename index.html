@@ -130,7 +130,7 @@
       We first use a classical regularized logistic regression technique. We choose $ \alpha=10 $ using cross-validation.
       For this technique we find a Mean Average Precision @ 7 of 0.00310. </p>
       
-      <h4><a href="http://www.datatheory.nl/pages/cdc7.pdf">Gradient Boosting</a></h4>
+      <h4>Gradient Boosting from <a href="http://www.datatheory.nl/pages/cdc7.pdf">MART</a></h4>
       <p>
       Gradient boosting is an ensemble method used to learn trees. The main idea is to learn the decision function $\hat{F}(x)$ as a weighted sum of "base learners" $h_m$. 
       $$\hat{F}(x) = \sum_{m=0}^M\beta_m h(x;a_m) $$</p>
@@ -143,7 +143,9 @@
 loss functions L(y, F(x)) with a two step procedure. First, the function h(x; a) is fit by least–
 squares
 
-$$a_m=arg\ min_{a,\rho} \sum_{i=1}^N [y_{im}-\rho h(x_i;a)]^2$$ to the current “pseudo”–residuals $$y_{im}=-[\frac{\partial L(y_i,F(x_i))}{\partial F(x_i)}]_{F(x)=F_{m-1}(x)}$$</p>
+$$a_m=arg\ min_{a,\rho} \sum_{i=1}^N [y_{im}-\rho h(x_i;a)]^2$$ to the current “pseudo”–residuals $$y_{im}=-[\frac{\partial L(y_i,F(x_i))}{\partial F(x_i)}]_{F(x)=F_{m-1}(x)}$$
+
+Finally we find $\beta_m$:$$\beta_m=arg\ min_{\beta} \sum_{i=1}^N$$</p>
       Using XGBoost implementation we find an MAP of 0.02689 which is our best result. Our parameters are a maximum depth of 8 for every tree and a learning rate of 0.05.
 
       </div>
