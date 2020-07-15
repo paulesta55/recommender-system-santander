@@ -139,6 +139,9 @@
         $$(\beta_m,a_m)=arg\ min_{\beta,a}\ \sum_{i=1}^N\ L(y_i, F_{m-1}(x_i)+\beta h(x_i;a))$$
        and
        $$F_m(x)=F_{m-1}(x)+\beta_m h(x;a_m)$$
+     Gradient boosting (Friedman, 2001) approximately solves (4) for arbitrary (differentiable)
+loss functions L(y, F(x)) with a two step procedure. First, the function h(x; a) is fit by least–
+squares</p>
       Using XGBoost implementation we find an MAP of 0.02689 which is our best result. Our parameters are a maximum depth of 8 for every tree and a learning rate of 0.05.
 
       </div>
